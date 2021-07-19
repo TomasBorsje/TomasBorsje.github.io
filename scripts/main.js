@@ -11,7 +11,7 @@ myButton.onclick = function() {
 
 myImage.onclick = function() {
 	clicks++;
-	if(clicks>1) {
+	if(clicks===2) {
 		myButton.hidden = false;
 	}
 }
