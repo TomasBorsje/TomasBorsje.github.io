@@ -1,22 +1,24 @@
-let myVideo = document.querySelector('video');
-let myButton = document.querySelector('button');
-let myImage = document.querySelector("img");
-let clicks = 0;
+let secretVideo = document.querySelector('video');
+let secretButton = document.querySelector('button');
+let banner = document.querySelector("img");
+let bannerClicks = 0;
 
-myButton.onclick = function() {
-	myButton.hidden = true;
-	myVideo.hidden = false;
-	myVideo.play();
-}
-
-myImage.onclick = function() {
-	clicks++;
-	if(clicks===2) {
-		myButton.hidden = false;
+// Once the banner is clicked twice, show the secret button
+banner.onclick = function() {
+	bannerClicks++;
+	if(bannerClicks===2) {
+		secretButton.hidden = false;
 	}
 }
 
-myVideo.onended = (event) => {
-	myVideo.hidden = true;
-	myButton.hidden = true;
+// Play the secret video and hide the button when it is pressed
+secretButton.onclick = function() {
+	secretButton.hidden = true;
+	secretVideo.hidden = false;
+	secretVideo.play();
+}
+
+// Hide the video once it has finished playing
+secretVideo.onended = (event) => {
+	secretVideo.hidden = true;
 }
